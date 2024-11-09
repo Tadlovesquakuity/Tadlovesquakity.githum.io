@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos Hábitos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            text-shadow: 1px 1px 2px #aaa;
+        }
+        .enlace {
+            display: inline-block;
+            margin: 15px;
+            padding: 20px;
+            background-color: #b0ca8d;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .enlace:hover {
+            background-color: #8be9b5;
+            transform: scale(1.05);
+        }
+        .formulario {
+            margin-top: 20px;
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input[type="number"], input[type="button"], input[type="file"] {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: calc(100% - 22px); /* Full width with padding */
+        }
+        input[type="button"] {
+            background-color: #00796b;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #004d40;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Los Buenos Hábitos Importan</h1>
+    <p>Comprueba si eres una persona balanceada y cómo balancear tu estilo de vida! :D</p>
+    
+    <h2>¿Qué son los hábitos?</h2>
+    <p>Son aquellas conductas que tenemos asumidas como propias en nuestra vida cotidiana y que inciden positivamente en nuestro bienestar físico, mental y social.</p>
+    
+    <h3>¿Para qué sirven los hábitos?</h3>
+    <p>Los buenos hábitos de salud pueden permitirte evitar una enfermedad y mejorar tu calidad de vida.</p>
+    
+    <div>
+        <a class="enlace" href="SESION.html">Ya tienes cuenta, ¿por qué no inicias sesión?</a>
+        <a class="enlace" href="registro.html">Ya sabes de nosotros, ¿por qué no nos dejas saber más de ti? Regístrate</a>
+    </div>
+
+    <div class="formulario">
+        <h2>Evalúa tus Hábitos</h2>
+        <p>¿Cuántos días a la semana practicas hábitos saludables? (Ej: ejercicio, comer frutas, etc.)</p>
+        <input type="number" id="diasHabitos" min="0" max="7" placeholder="Número de días (0-7)">
+        <input type="button" value="Evaluar" onclick="evaluarHabitos()">
+        
+        <h3>Inserta una Imagen de tus Hábitos</h3>
+        <input type="file" id="imagenInput" accept="image/*" onchange="mostrarImagen(event)">
+        <img id="imagenPreview" src="" alt="Vista previa de la imagen" style="display: none;">
+    </div>
+
+    <script>
+        function evaluarHabitos() {
+            const dias = parseInt(document.getElementById('diasHabitos').value);
+            let mensaje;
+
+            if (dias >= 5) {
+                mensaje = "¡Excelente! Mantienes buenos hábitos saludables.";
+            } else if (dias >= 3) {
+                mensaje = "¡Bien hecho! Pero podrías mejorar tus hábitos.";
+            } else {
+                mensaje = "Es hora de adoptar más hábitos saludables.";
+            }
+
+            alert(mensaje);
+        }
+
+        function mostrarImagen(event) {
+            const imagenPreview = document.getElementById('imagenPreview');
+            imagenPreview.src = URL.createObjectURL(event.target.files[0]);
+            imagenPreview.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+
